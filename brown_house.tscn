@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Level1/Houses/brown_house.png" type="Texture" id=1]
+
+[node name="brown_house" type="Sprite"]
+position = Vector2( 4, 19 )
+texture = ExtResource( 1 )

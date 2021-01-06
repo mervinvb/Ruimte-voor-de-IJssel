@@ -1,0 +1,177 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://DialoguePopup.gd" type="Script" id=1]
+[ext_resource path="res://PausedPopup.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/Font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Music and Sounds/talkingsounds.wav" type="AudioStream" id=4]
+[ext_resource path="res://UI/font.png" type="Texture" id=5]
+
+[sub_resource type="Animation" id=1]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect/Dialogue:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("DialogueSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=2]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.396078 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:custom_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="DialoguePopup" type="Popup" parent="."]
+pause_mode = 2
+margin_right = 40.0
+margin_bottom = 40.0
+popup_exclusive = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="Sprite" parent="DialoguePopup"]
+position = Vector2( 160, 144 )
+scale = Vector2( 1.16667, 1 )
+texture = ExtResource( 5 )
+
+[node name="NPCName" type="Label" parent="DialoguePopup/ColorRect"]
+anchor_left = 0.0053573
+anchor_top = 0.0277778
+anchor_right = 0.0053573
+anchor_bottom = 0.0277778
+margin_left = -111.0
+margin_top = -26.0
+margin_right = 179.0
+margin_bottom = -9.0
+rect_scale = Vector2( 0.54, 0.7 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Van Voorden"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogue" type="Label" parent="DialoguePopup/ColorRect"]
+anchor_left = 0.00333333
+anchor_top = 0.02
+anchor_right = 0.00333333
+anchor_bottom = 0.02
+margin_left = -110.8
+margin_top = -14.44
+margin_right = 296.2
+margin_bottom = 25.56
+rect_scale = Vector2( 0.54, 0.7 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+text = "Hallo leerling! Ik ben mijn stenen kwijt. Wil jij ze voor mij zoeken?"
+autowrap = true
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answers" type="Label" parent="DialoguePopup/ColorRect"]
+margin_left = -109.714
+margin_top = 16.0
+margin_right = 301.286
+margin_bottom = 33.0
+rect_scale = Vector2( 0.54, 0.7 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "[A] Ja [B] Nee"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialoguePopup"]
+anims/ShowDialogue = SubResource( 1 )
+
+[node name="DialogueSound" type="AudioStreamPlayer" parent="DialoguePopup"]
+stream = ExtResource( 4 )
+
+[node name="PausedPopup" type="Popup" parent="."]
+pause_mode = 2
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="PausedPopup"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -48.0
+margin_top = -16.0
+margin_right = 368.0
+margin_bottom = 200.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PausedPopup"]
+margin_left = 57.0
+margin_top = 79.0
+margin_right = 262.0
+margin_bottom = 96.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 0 )
+text = "De game is gepauzeerd."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PausedPopup"]
+anims/Pause = SubResource( 2 )
+[connection signal="animation_finished" from="DialoguePopup/AnimationPlayer" to="DialoguePopup" method="_on_AnimationPlayer_animation_finished"]

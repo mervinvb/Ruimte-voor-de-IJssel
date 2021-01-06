@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Fonts/mainmenufont.tres" type="DynamicFont" id=1]
+
+[node name="Label" type="Label"]
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 1812.0
+margin_bottom = 527.0
+rect_scale = Vector2( 0.06, 0.06 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Doel:
+Bereik de overkant zonder
+in het water te vallen."
+__meta__ = {
+"_edit_use_anchors_": false
+}

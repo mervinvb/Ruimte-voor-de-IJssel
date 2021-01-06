@@ -1,0 +1,284 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scenes/Level1/Note.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Level1/Assets/note.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Notes/notefortext.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fonts/Notefont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Fonts/mainmenufont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Music and Sounds/paper_01.wav" type="AudioStream" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -70 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 300, 360 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "collect"
+
+[sub_resource type="Animation" id=4]
+resource_name = "note1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/notefortext:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Note1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "showall"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/notefortext:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Note1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/Note2:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/Note3:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer/Note4:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CanvasLayer/Hider:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "hidenote"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Note" type="Sprite"]
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+anims/Idle = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, -20 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/collect = SubResource( 3 )
+anims/note1 = SubResource( 4 )
+anims/showall = SubResource( 5 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="notefortext" parent="CanvasLayer" instance=ExtResource( 3 )]
+
+[node name="Note1" type="Label" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 79.0
+margin_top = 53.0
+margin_right = 1749.0
+margin_bottom = 713.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "De Zandweerdplas zal worden vergroot, ondieper worden gemaakt en omgevormd worden tot een brede hank. De bestaande hank bij de waterzuiveringsinstallatie zal dan nog te herkennen zijn doordat grote delen van de oever bewaard zullen blijven. Met een diepte van 4 meter biedt het water voldoende diepgang voor watersporters en voldoende helderheid voor oever-recreanten. "
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Note2" type="Label" parent="CanvasLayer"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 79.0
+margin_top = 53.0
+margin_right = 1749.0
+margin_bottom = 713.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "In het zuiden is de Zandweerdplas via een brede drempel van de IJssel gescheiden. Ieder jaar zal de drempel voor ongeveer 27 dagen overstromen. De rivier kan dan zand afzetten, wat gestimuleerd wordt door het afgraven van het aanwezige zand. Na een bepaalde periode zal de boombegroeiing die noordelijker ligt meer ruimte krijgen."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Note3" type="Label" parent="CanvasLayer"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 79.0
+margin_top = 53.0
+margin_right = 1749.0
+margin_bottom = 713.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Langs de oever zal een complex liggen dat verbonden zal worden door een houten steiger die op 12 meter van de wal ligt. Deze afstand zorgt voor voldoende waterdiepte voor de woonboten en ligboxen, ook bij lage waterstanden."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Note4" type="Label" parent="CanvasLayer"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 79.0
+margin_top = 53.0
+margin_right = 1749.0
+margin_bottom = 713.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "De Zandweerdplas en de IJssel gaan op een nieuwe plaats met elkaar verbonden worden. Deze locatie zal ervoor zorgen dat roeiers en andere watersporters niet te veel in elkaars water komen. In het noorden wordt er meer geroeid en in het zuiden worden meer overige watersporten gedaan."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hider" type="Label" parent="CanvasLayer"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 260.0
+margin_top = 122.0
+margin_right = 337.0
+margin_bottom = 251.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CanvasLayer/Hider"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0519481
+anchor_top = 0.00775005
+anchor_right = 0.0519481
+anchor_bottom = 0.00775005
+margin_left = -74.0
+margin_top = -40.9998
+margin_right = 142.0
+margin_bottom = 153.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="."]
+anims/hidenote = SubResource( 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="pressed" from="CanvasLayer/Hider/Button" to="." method="_on_Button_pressed"]

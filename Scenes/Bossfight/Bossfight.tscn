@@ -1,0 +1,563 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://World/grassimage.png" type="Texture" id=1]
+[ext_resource path="res://Tilesets/Water.tres" type="TileSet" id=2]
+[ext_resource path="res://Tilesets/Water Artifacts.tres" type="TileSet" id=3]
+[ext_resource path="res://Scenes/Bossfight/alkie.png" type="Texture" id=4]
+[ext_resource path="res://Player/Sprite_sheet-2.png" type="Texture" id=5]
+[ext_resource path="res://Fonts/Schrdinger.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Scenes/Bossfight/Bossfight.gd" type="Script" id=7]
+[ext_resource path="res://Fonts/mainmenufont.tres" type="DynamicFont" id=8]
+[ext_resource path="res://UI/talkbubble.png" type="Texture" id=9]
+[ext_resource path="res://Fonts/Notefont.tres" type="DynamicFont" id=10]
+[ext_resource path="res://Music and Sounds/kidcheer.wav" type="AudioStream" id=11]
+[ext_resource path="res://Music and Sounds/buzzer.wav" type="AudioStream" id=12]
+[ext_resource path="res://Scenes/Bossfight/GUI Anims.gd" type="Script" id=13]
+[ext_resource path="res://Music and Sounds/birbs.tscn" type="PackedScene" id=14]
+
+[sub_resource type="Animation" id=1]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 18, 22 ]
+}
+
+[sub_resource type="Animation" id=2]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 3 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/Question1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.243137 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/Question2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.352941 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "3"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/Question3:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.352941 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Question2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.352941 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "3"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Question3:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.352941 ) ]
+}
+
+[sub_resource type="DynamicFont" id=8]
+size = 64
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=9]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( -2, -2, -2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.439216 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Vector2( 272, 125 ), Vector2( 180, 117 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Vector2( 0.00999996, 0.8 ), Vector2( 0.8, 0.8 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "new"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Answer1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Answer2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Answer3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Question:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true ]
+}
+
+[node name="World" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -19.0
+margin_top = -3.0
+margin_right = 339.0
+margin_bottom = 212.0
+texture = ExtResource( 1 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65554, 0, 0, 65555, 0, 0, 65556, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131090, 0, 0, 131091, 0, 0, 131092, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196626, 0, 0, 196627, 0, 0, 196628, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 0, 0, 262164, 0, 0, 393215, 0, 0, 327680, 0, 0, 327689, 0, 0, 327690, 0, 0, 327699, 0, 0, 327700, 0, 0, 458751, 0, 0, 393216, 0, 0, 393225, 0, 0, 393226, 0, 0, 393235, 0, 0, 393236, 0, 0, 524287, 0, 0, 458752, 0, 0, 458761, 0, 0, 458762, 0, 0, 458771, 0, 0, 458772, 0, 0, 589823, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 655359, 0, 0, 589824, 0, 0, 589828, 0, 0, 589829, 0, 0, 589838, 0, 0, 589839, 0, 0, 589843, 0, 0, 589844, 0, 0, 720895, 0, 0, 655360, 0, 0, 655362, 0, 0, 655364, 0, 0, 655365, 0, 0, 655374, 0, 0, 655375, 0, 0, 655379, 0, 0, 655380, 0, 0, 786431, 0, 0, 720896, 0, 0, 720898, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720915, 0, 0, 720916, 0, 0, 851967, 0, 0, 786432, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 786451, 0, 0, 786452, 0, 0 )
+
+[node name="TileMap2" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 11, 8, 0, 65536, 2, 0, 65538, 34, 0, 65539, 26, 0, 65540, 26, 0, 65541, 26, 0, 65542, 26, 0, 65543, 26, 0, 65544, 26, 0, 65545, 26, 0, 65546, 26, 0, 65547, 26, 0, 65548, 26, 0, 65549, 26, 0, 65550, 26, 0, 65551, 26, 0, 65552, 26, 0, 65553, 31, 0, 131074, 28, 0, 131089, 22, 0, 196609, 11, 0, 196610, 30, 0, 196611, 24, 0, 196612, 24, 0, 196613, 24, 0, 196614, 24, 0, 196615, 24, 0, 196616, 24, 0, 196617, 24, 0, 196618, 24, 0, 196619, 24, 0, 196620, 24, 0, 196621, 24, 0, 196622, 24, 0, 196623, 24, 0, 196624, 24, 0, 196625, 32, 0, 196627, 1, 0, 262149, 3, 0, 262160, 2, 0, 327681, 34, 0, 327682, 26, 0, 327683, 26, 0, 327684, 26, 0, 327685, 26, 0, 327686, 26, 0, 327687, 26, 0, 327688, 31, 0, 327691, 34, 0, 327692, 26, 0, 327693, 26, 0, 327694, 26, 0, 327695, 26, 0, 327696, 26, 0, 327697, 26, 0, 327698, 31, 0, 393217, 28, 0, 393224, 22, 0, 393227, 28, 0, 393234, 22, 0, 458753, 30, 0, 458754, 24, 0, 458755, 24, 0, 458756, 24, 0, 458757, 24, 0, 458758, 24, 0, 458759, 24, 0, 458760, 32, 0, 458763, 30, 0, 458764, 24, 0, 458765, 24, 0, 458766, 24, 0, 458767, 24, 0, 458768, 24, 0, 458769, 24, 0, 458770, 32, 0, 524288, 9, 0, 524294, 34, 0, 524295, 26, 0, 524296, 26, 0, 524297, 26, 0, 524298, 26, 0, 524299, 26, 0, 524300, 26, 0, 524301, 31, 0, 524302, 11, 0, 589825, 34, 0, 589826, 26, 0, 589827, 31, 0, 589828, 1, 0, 589830, 28, 0, 589837, 22, 0, 589840, 34, 0, 589841, 26, 0, 589842, 31, 0, 655361, 28, 0, 655362, 39, 0, 655363, 22, 0, 655366, 30, 0, 655367, 24, 0, 655368, 24, 0, 655369, 24, 0, 655370, 24, 0, 655371, 24, 0, 655372, 24, 0, 655373, 32, 0, 655374, 0, 0, 655376, 28, 0, 655377, 39, 0, 655378, 22, 0, 720897, 28, 0, 720898, 39, 0, 720899, 22, 0, 720902, 10, 0, 720912, 28, 0, 720913, 39, 0, 720914, 22, 0, 720915, 8, 0, 786433, 28, 0, 786435, 22, 0, 786448, 28, 0, 786450, 22, 0 )
+
+[node name="Player" type="Sprite" parent="."]
+position = Vector2( 41, 167 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 5 )
+hframes = 60
+frame = 18
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+autoplay = "idle"
+anims/idle = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 161, 101 )
+current = true
+
+[node name="alkie" type="Sprite" parent="."]
+position = Vector2( 280, 169 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 4 )
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="alkie"]
+autoplay = "idle"
+anims/idle = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/1 = SubResource( 3 )
+anims/2 = SubResource( 4 )
+anims/3 = SubResource( 5 )
+script = ExtResource( 13 )
+
+[node name="Question1" type="ColorRect" parent="AnimationPlayer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 19.0
+margin_top = 84.0
+margin_right = 140.0
+margin_bottom = 124.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Question2" type="ColorRect" parent="AnimationPlayer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 179.0
+margin_top = 84.0
+margin_right = 301.0
+margin_bottom = 124.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Question3" type="ColorRect" parent="AnimationPlayer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 99.0
+margin_top = 132.0
+margin_right = 221.0
+margin_bottom = 172.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationPlayer"]
+anims/2 = SubResource( 6 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="AnimationPlayer"]
+anims/3 = SubResource( 7 )
+
+[node name="Question" type="Label" parent="."]
+margin_left = 42.0
+margin_top = 21.0
+margin_right = 1348.0
+margin_bottom = 222.0
+rect_scale = Vector2( 0.18, 0.18 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 4
+text = "Waarom is goede doorstroombaarheid van belang?"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer1" type="Label" parent="."]
+margin_left = 22.0
+margin_top = 83.0
+margin_right = 989.0
+margin_bottom = 420.0
+rect_scale = Vector2( 0.12, 0.12 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 4
+text = "Goede doortstroombaarheid zorgt voor snellere scheepvaart."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer1" type="Button" parent="Answer1"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -25.0
+margin_right = 992.0
+margin_bottom = 342.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer2" type="Label" parent="."]
+margin_left = 183.0
+margin_top = 83.0
+margin_right = 1150.0
+margin_bottom = 420.0
+rect_scale = Vector2( 0.12, 0.12 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 4
+text = "Het zorgt voor stiller ondiep water wat oeverrecreatie bevordert."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer2" type="Button" parent="Answer2"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = -42.0
+margin_top = 8.0
+margin_right = 983.0
+margin_bottom = 333.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer3" type="Label" parent="."]
+margin_left = 102.0
+margin_top = 131.0
+margin_right = 1069.0
+margin_bottom = 468.0
+rect_scale = Vector2( 0.12, 0.12 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 4
+text = "Het zorgt ervoor dat niet te veel water in de nevengeul vloeit in tijden van lage waterstand."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer3" type="Button" parent="Answer3"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = -17.0
+margin_right = 992.0
+margin_bottom = 334.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Correct" type="Label" parent="."]
+margin_left = 156.0
+margin_top = 90.0
+margin_right = 233.0
+margin_bottom = 219.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0.0705882, 0.682353, 0.137255, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Goed" type="Label" parent="."]
+margin_left = 149.0
+margin_top = 83.0
+margin_right = 495.0
+margin_bottom = 212.0
+rect_scale = Vector2( 0.06, 0.06 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0.0705882, 0.682353, 0.137255, 1 )
+text = "Goed:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fout" type="Label" parent="."]
+margin_left = 149.0
+margin_top = 105.0
+margin_right = 495.0
+margin_bottom = 234.0
+rect_scale = Vector2( 0.06, 0.06 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 1, 0.164706, 0.164706, 1 )
+text = "Fout:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Incorrect" type="Label" parent="."]
+margin_left = 156.0
+margin_top = 112.0
+margin_right = 233.0
+margin_bottom = 241.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 1, 0.164706, 0.164706, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="kidscheer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="buzzer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -12.0
+margin_top = -6.0
+margin_right = 331.0
+margin_bottom = 213.0
+color = Color( 0.968627, 0.0745098, 0.00784314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ColorRect"]
+anims/red = SubResource( 9 )
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="talkbubble" type="Sprite" parent="CanvasLayer2"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 272, 125 )
+scale = Vector2( 0.00999996, 0.8 )
+texture = ExtResource( 9 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer2/talkbubble"]
+anims/show = SubResource( 10 )
+
+[node name="Label" type="Label" parent="CanvasLayer2/talkbubble"]
+margin_left = -136.0
+margin_top = -30.0
+margin_right = 1339.0
+margin_bottom = 270.0
+rect_scale = Vector2( 0.15, 0.15 )
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Dat klopt! De zandverzetting zorgt voor veel dingus dingus bladiebladie bla lalalalalala kaassoufle in een bakkie enzo ik ben alkie en ik praat."
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Birds" parent="." instance=ExtResource( 14 )]
+
+[node name="NewQuestion" type="AnimationPlayer" parent="."]
+anims/new = SubResource( 11 )
+[connection signal="mouse_entered" from="Answer1/Answer1" to="AnimationPlayer" method="_on_Answer1_mouse_entered"]
+[connection signal="mouse_exited" from="Answer1/Answer1" to="AnimationPlayer" method="_on_Answer1_mouse_exited"]
+[connection signal="pressed" from="Answer1/Answer1" to="." method="_on_Answer1_pressed"]
+[connection signal="mouse_entered" from="Answer2/Answer2" to="AnimationPlayer" method="_on_Answer2_mouse_entered"]
+[connection signal="mouse_exited" from="Answer2/Answer2" to="AnimationPlayer" method="_on_Answer2_mouse_exited"]
+[connection signal="pressed" from="Answer2/Answer2" to="." method="_on_Answer2_pressed"]
+[connection signal="mouse_entered" from="Answer3/Answer3" to="AnimationPlayer" method="_on_Answer3_mouse_entered"]
+[connection signal="mouse_exited" from="Answer3/Answer3" to="AnimationPlayer" method="_on_Answer3_mouse_exited"]
+[connection signal="pressed" from="Answer3/Answer3" to="." method="_on_Answer3_pressed"]

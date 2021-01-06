@@ -1,0 +1,357 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://World/Animations/WaterAnimation.tres" type="Texture" id=1]
+[ext_resource path="res://Tilesets/Water Artifacts.tres" type="TileSet" id=2]
+[ext_resource path="res://Tilesets/DirtMap.tres" type="TileSet" id=3]
+[ext_resource path="res://Tilesets/Nature.tres" type="TileSet" id=4]
+[ext_resource path="res://World/grassimage.png" type="Texture" id=5]
+[ext_resource path="res://Fonts/mainmenufont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Terugscript.gd" type="Script" id=7]
+[ext_resource path="res://World/Bush.tscn" type="PackedScene" id=8]
+[ext_resource path="res://World/Tree.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Player/BetaSpriteSheet.png" type="Texture" id=10]
+[ext_resource path="res://Credits.gd" type="Script" id=11]
+
+[sub_resource type="TileSet" id=1]
+0/name = "WaterAnimation.tres 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="Animation" id=2]
+resource_name = "move"
+length = 2.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Character:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 112, 187 ), Vector2( 53, 135 ), Vector2( -14, 87 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "walk"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 13, 14, 15, 16, 17, 12 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "move"
+length = 2.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Character:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 112, 187 ), Vector2( 53, 135 ), Vector2( -14, 87 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "walk"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 13, 14, 15, 16, 17, 12 ]
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 320, 180 )
+
+[node name="Dirt" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 458751, 0, 0, 393216, 0, 2, 524287, 0, 131072, 458752, 0, 196613, 458753, 0, 6, 458754, 0, 2, 524289, 0, 131072, 524290, 0, 9, 524291, 0, 1, 524292, 0, 2, 589826, 0, 131072, 589827, 0, 131073, 589828, 0, 9, 589829, 0, 2, 655364, 0, 131072, 655365, 0, 9, 655366, 0, 2, 720901, 0, 131072, 720902, 0, 196613, 720903, 0, 7, 786439, 0, 131075 )
+
+[node name="Water" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196628, 0, 0, 262163, 0, 0, 262164, 0, 0, 327698, 0, 0, 327699, 0, 0, 327700, 0, 0, 393234, 0, 0, 393235, 0, 0, 393236, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458772, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0 )
+
+[node name="Nature" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 6, 7, 0, 15, 10, 0, 18, 0, 0, 65544, 3, 0, 65549, 4, 0, 65550, 4, 0, 65551, 7, 0, 131088, 0, 0, 131090, 7, 0, 196612, 10, 0, 196613, 4, 0, 196615, 4, 0, 196624, 2, 0, 196626, 4, 0, 262147, 7, 0, 262148, 4, 0, 262155, 3, 0, 262158, 4, 0, 262160, 6, 0, 327680, 4, 0, 327683, 4, 0, 327696, 10, 0, 393219, 9, 0, 393222, 3, 0, 393231, 2, 0, 458756, 10, 0, 458766, 0, 0, 524294, 4, 0, 524300, 3, 0, 589824, 4, 0, 589825, 5, 0, 589833, 3, 0, 589837, 4, 0, 655363, 1, 0, 655370, 7, 0 )
+
+[node name="Waterstuff" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -65531, 28, 0, 1, 8, 0, 4, 0, 0, 5, 28, 0, 65541, 28, 0, 131074, 11, 0, 131076, 34, 0, 131077, 29, 0, 131091, 21, 0, 196608, 2, 0, 196611, 34, 0, 196612, 29, 0, 196626, 21, 0, 196627, 32, 0, 327679, 26, 0, 262144, 26, 0, 262145, 26, 0, 262146, 26, 0, 262147, 29, 0, 262161, 21, 0, 262162, 32, 0, 262163, 9, 0, 327697, 22, 0, 393232, 21, 0, 393233, 32, 0, 393235, 3, 0, 458767, 21, 0, 458768, 32, 0, 524303, 22, 0, 524305, 11, 0, 524307, 34, 0, 524308, 29, 0, 589838, 21, 0, 589839, 32, 0, 589843, 28, 0, 655373, 21, 0, 655374, 32, 0, 655375, 0, 0, 655378, 34, 0, 655379, 29, 0, 720909, 32, 0, 720913, 34, 0, 720914, 29, 0 )
+
+[node name="Bush" parent="." instance=ExtResource( 8 )]
+position = Vector2( 37, 91 )
+
+[node name="Tree" parent="." instance=ExtResource( 9 )]
+position = Vector2( 279, 44 )
+
+[node name="Character" type="Sprite" parent="."]
+position = Vector2( 112, 202 )
+texture = ExtResource( 10 )
+hframes = 60
+frame = 14
+
+[node name="ColorRect5" type="ColorRect" parent="."]
+margin_left = 77.0
+margin_top = 6.0
+margin_right = 242.0
+margin_bottom = 172.0
+color = Color( 0, 0, 0, 0.156863 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits " type="Label" parent="."]
+margin_left = 2.0
+margin_top = 8.0
+margin_right = 1592.0
+margin_bottom = 137.0
+rect_scale = Vector2( 0.2, 0.2 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Credits"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mervin van Brakel" type="Label" parent="."]
+margin_left = 2.0
+margin_top = 39.0
+margin_right = 3182.0
+margin_bottom = 168.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Mervin van Brakel"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mervin van Brakel2" type="Label" parent="Mervin van Brakel"]
+margin_left = -20.0
+margin_top = 130.0
+margin_right = 3980.0
+margin_bottom = 430.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Level design & Programmeren"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Merel gertiste" type="Label" parent="."]
+margin_top = 69.0
+margin_right = 3200.0
+margin_bottom = 198.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Merel Gerritse"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mereltjeeee" type="Label" parent="Merel gertiste"]
+margin_top = 130.0
+margin_right = 4000.0
+margin_bottom = 430.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Character design & Quests"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dnaaaaa" type="Label" parent="."]
+margin_top = 98.0
+margin_right = 3210.0
+margin_bottom = 227.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Dana van Geijn"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mervin van Brakel2" type="Label" parent="Dnaaaaa"]
+margin_top = 130.0
+margin_right = 4000.0
+margin_bottom = 430.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Researcher & Quests"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dnaaaaa2" type="Label" parent="."]
+margin_top = 126.0
+margin_right = 3200.0
+margin_bottom = 255.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Met dank aan:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mervin van Brakel2" type="Label" parent="Dnaaaaa2"]
+margin_left = -30.0
+margin_top = 130.0
+margin_right = 3970.0
+margin_bottom = 655.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "opengameart.org
+itch.io
+Alle YouTube tutorials...
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Terug" type="Label" parent="."]
+margin_left = 5.0
+margin_top = 163.0
+margin_right = 493.0
+margin_bottom = 292.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Terug"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Terug"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -100.0
+margin_top = -100.0
+margin_right = 530.0
+margin_bottom = 210.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 121.0
+margin_top = 35.0
+margin_right = 202.0
+margin_bottom = 36.0
+color = Color( 1, 1, 1, 0.721569 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+margin_left = 121.0
+margin_top = 65.0
+margin_right = 202.0
+margin_bottom = 66.0
+color = Color( 1, 1, 1, 0.721569 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = 121.0
+margin_top = 95.0
+margin_right = 202.0
+margin_bottom = 96.0
+color = Color( 1, 1, 1, 0.721569 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+margin_left = 121.0
+margin_top = 123.0
+margin_right = 202.0
+margin_bottom = 124.0
+color = Color( 1, 1, 1, 0.721569 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/move = SubResource( 2 )
+anims/walk = SubResource( 3 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/move = SubResource( 4 )
+anims/walk = SubResource( 5 )
+[connection signal="pressed" from="Terug/Button" to="Terug/Button" method="_on_Button_pressed"]

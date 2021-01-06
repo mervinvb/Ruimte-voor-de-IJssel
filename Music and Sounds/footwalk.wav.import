@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/footwalk.wav-723ccbf3da677a243c41b5e7ae7cb39d.sample"
+
+[deps]
+
+source_file="res://Music and Sounds/footwalk.wav"
+dest_files=[ "res://.import/footwalk.wav-723ccbf3da677a243c41b5e7ae7cb39d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/drumroll_01.wav-3eef69122f399eb98f63bb00f1d61599.sample"
+
+[deps]
+
+source_file="res://Music and Sounds/drumroll_01.wav"
+dest_files=[ "res://.import/drumroll_01.wav-3eef69122f399eb98f63bb00f1d61599.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

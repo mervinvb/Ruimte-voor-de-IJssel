@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Ambience, Forest, Birds, Wind In Trees 1 SND0432 2.wav-b7af42789cbb4414cbbeccf749b4c4c7.sample"
+
+[deps]
+
+source_file="res://Music and Sounds/Ambience, Forest, Birds, Wind In Trees 1 SND0432 2.wav"
+dest_files=[ "res://.import/Ambience, Forest, Birds, Wind In Trees 1 SND0432 2.wav-b7af42789cbb4414cbbeccf749b4c4c7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

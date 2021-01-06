@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Bossfight/Confetti.gd" type="Script" id=1]
+
+[node name="Confetti" type="CPUParticles2D"]
+pause_mode = 2
+position = Vector2( 156, 12 )
+emitting = false
+amount = 120
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.17
+lifetime_randomness = 0.64
+emission_shape = 2
+emission_rect_extents = Vector2( 200, 20 )
+direction = Vector2( 0, 0 )
+spread = 180.0
+initial_velocity = 433.87
+initial_velocity_random = 1.0
+scale_amount = 5.0
+color = Color( 1, 0.0156863, 0.0156863, 1 )
+hue_variation = 0.33
+hue_variation_random = 0.15
+script = ExtResource( 1 )

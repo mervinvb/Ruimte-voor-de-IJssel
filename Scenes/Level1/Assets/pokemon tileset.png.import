@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/pokemon tileset.png-8063f5e1bdd0e06d3cfafbc4f05ce981.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Scenes/Level1/Assets/pokemon tileset.png"
+dest_files=[ "res://.import/pokemon tileset.png-8063f5e1bdd0e06d3cfafbc4f05ce981.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/kidcheer.wav-950dd2185dd723c6aa1d395593c2b142.sample"
+
+[deps]
+
+source_file="res://Music and Sounds/kidcheer.wav"
+dest_files=[ "res://.import/kidcheer.wav-950dd2185dd723c6aa1d395593c2b142.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

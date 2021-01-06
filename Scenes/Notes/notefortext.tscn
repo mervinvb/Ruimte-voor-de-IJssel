@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Level1/Assets/notefortext.png" type="Texture" id=1]
+
+[node name="notefortext" type="Sprite"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 161, 86 )
+scale = Vector2( 0.28375, 0.283437 )
+texture = ExtResource( 1 )

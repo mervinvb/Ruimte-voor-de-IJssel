@@ -1,0 +1,106 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Music and Sounds/Game muziek V3.wav" type="AudioStream" id=1]
+[ext_resource path="res://MusicPlayer.gd" type="Script" id=2]
+[ext_resource path="res://Music and Sounds/Overworld theme.wav" type="AudioStream" id=3]
+[ext_resource path="res://Scenes/Level3/Assets/splash.wav" type="AudioStream" id=4]
+[ext_resource path="res://Music and Sounds/Boss fight V4.wav" type="AudioStream" id=5]
+
+[sub_resource type="Animation" id=2]
+resource_name = "fade_boss"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Bossfight:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -5.306, -80.0 ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "fade_out"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("MenuTheme:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -10.0, -80.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("OverworldTheme:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("OverworldTheme:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -80.0, -19.117 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MenuTheme:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -80.0, -10.0 ]
+}
+
+[node name="Node2D" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 2 )
+
+[node name="MenuTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -10.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fade_boss = SubResource( 2 )
+anims/fade_out = SubResource( 1 )
+anims/start = SubResource( 3 )
+
+[node name="OverworldTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -80.0
+
+[node name="Splash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -5.887
+
+[node name="Bossfight" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -5.306
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

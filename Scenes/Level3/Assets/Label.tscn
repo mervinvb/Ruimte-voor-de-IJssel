@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Fonts/mainmenufont.tres" type="DynamicFont" id=1]
+
+[node name="Label" type="Label"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -16.0
+margin_top = -23.0
+margin_right = 784.0
+margin_bottom = 238.0
+rect_scale = Vector2( 0.04, 0.04 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Klik op E om te praten."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
